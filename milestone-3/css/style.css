@@ -1,11 +1,21 @@
-*,
-*::after,
-*::before{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body{
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+
+#adjectives{
+  position: absolute;
+  top: -150px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 70%;
+}
+
+#adjective-contianer{
+  position: relative;
+}
+/* 
+img:hover{
+  width: 100%;
+  scale: 1.1;
+  object-fit: contain;
+} */
