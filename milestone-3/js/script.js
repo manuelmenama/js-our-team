@@ -74,19 +74,19 @@ function printCard() {
   for(let teamMember of teamMembers) {
     console.log("Member: " + teamMember.name, "Role: " + teamMember.role, "url-image: " + teamMember.image);
     
-    let adjectivesList = printList(teamMember);
+    //let adjectivesList = printList(teamMember);
   
     allMembersList.innerHTML += `
     <div class="col-4 mb-5">
   
-      <div id="adjective-contianer" class="card mm-adjective-contianer mm-card" style="width: 18rem;">
+      <div id="adjective-contianer" class="card mm-adjective-contianer mm-card shadow rounded-0"">
         <div class="img-custom">
-          <img src="${teamMember.image}" class="card-img-top" alt="${teamMember.name}">
+          <img src="${teamMember.image}" class="card-img-top rounded-0" alt="${teamMember.name}">
         </div>
         <div class="card-body">
           <div class="card">
             <ul id="adjectives" class="list-group list-group-flush w-75 mm-list">
-            ${adjectivesList}
+            ${printList(teamMember)}
             </ul>
           </div>
           <h5 class="card-title text-center">${teamMember.name}</h5>
@@ -108,5 +108,3 @@ function printList(inputArray) {
   }
   return listItem;
 }
-
-console.log(customCard);
