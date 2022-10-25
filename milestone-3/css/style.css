@@ -2,20 +2,36 @@ body{
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-#adjectives{
+.mm-list{
   position: absolute;
   top: -150px;
   left: 50%;
   transform: translateX(-50%);
-  opacity: 70%;
+  opacity: 0%;
+  transition: opacity 1s;
 }
 
-#adjective-contianer{
+.mm-adjective-contianer{
   position: relative;
 }
-/* 
-img:hover{
+
+.img-custom{
   width: 100%;
-  scale: 1.1;
-  object-fit: contain;
-} */
+  overflow: hidden;
+}
+
+img{
+  filter: brightness(80%);
+  transition: scale 1s, filter 1s;
+}
+
+.mm-card:hover img{
+  
+  scale: 1.2;
+  filter: brightness(100%);
+  
+}
+
+.mm-card:hover .mm-list{
+  opacity: 75%;
+}

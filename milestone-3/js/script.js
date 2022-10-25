@@ -68,38 +68,45 @@ const teamMembers = [
   
 ];
 
-for(let teamMember of teamMembers) {
-  console.log("Member: " + teamMember.name, "Role: " + teamMember.role, "url-image: " + teamMember.image);
+printCard();
 
-  let adjectivesList = "";
+function printCard() {
+  for(let teamMember of teamMembers) {
+    console.log("Member: " + teamMember.name, "Role: " + teamMember.role, "url-image: " + teamMember.image);
+    
+    let adjectivesList = printList(teamMember);
+  
+    allMembersList.innerHTML += `
+    <div class="col-4 mb-5">
+  
+      <div id="adjective-contianer" class="card mm-adjective-contianer mm-card" style="width: 18rem;">
+        <div class="img-custom">
+          <img src="${teamMember.image}" class="card-img-top" alt="${teamMember.name}">
+        </div>
+        <div class="card-body">
+          <div class="card">
+            <ul id="adjectives" class="list-group list-group-flush w-75 mm-list">
+            ${adjectivesList}
+            </ul>
+          </div>
+          <h5 class="card-title text-center">${teamMember.name}</h5>
+          <p class="card-subtitle text-muted text-center">${teamMember.role}</p>
+        </div>
+      </div>
+  
+    </div>
+    `;
+  }
+}
 
-  for(let adjective of teamMember.adjectives) {
-    adjectivesList += `
+function printList(inputArray) {
+  let listItem = "";
+  for(let adjective of inputArray.adjectives) {
+    listItem += `
     <li class="list-group-item">${adjective}</li>
     `;
   }
-  console.log(adjectivesList);
-  
-  
-
-  allMembersList.innerHTML += `
-  <div class="col-4 mb-5">
-
-    <div id="adjective-contianer" class="card" style="width: 18rem;">
-      <img src="${teamMember.image}" class="card-img-top" alt="${teamMember.name}">
-      <div class="card-body">
-        <div class="card">
-          <ul id="adjectives" class="list-group list-group-flush w-75">
-          ${adjectivesList}
-          </ul>
-        </div>
-        <h5 class="card-title text-center">${teamMember.name}</h5>
-        <p class="card-subtitle text-muted text-center">${teamMember.role}</p>
-      </div>
-    </div>
-
-  </div>
-  `;
-
-  
+  return listItem;
 }
+
+console.log(customCard);
